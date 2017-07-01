@@ -8,10 +8,6 @@ import com.google.gson.annotations.SerializedName
  */
 open class Github {
 
-    @SerializedName("id")
-    @Expose
-    open var id: Int = 0
-
     @SerializedName("avatar_url")
     @Expose
     open var avatarUrl: String? = null

@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData(binding: ActivityMainBinding, savedUser: Github?) {
-        Glide.with(this).load(savedUser?.avatarUrl).into(binding.userImage)
-        binding.userName.text = savedUser?.name
-        binding.publicRepos.text = savedUser?.company
+        Glide.with(this).load(savedUser?.avatarUrl).into(binding.image)
+        binding.username.text = savedUser?.name
+        binding.company.text = savedUser?.company
     }
 }
