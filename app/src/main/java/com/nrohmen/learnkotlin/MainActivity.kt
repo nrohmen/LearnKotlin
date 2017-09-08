@@ -1,12 +1,12 @@
 package com.nrohmen.learnkotlin
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
-import com.nrohmen.learnkotlin.databinding.ActivityMainBinding
 import retrofit.GsonConverterFactory
 import retrofit.Retrofit
 import retrofit.RxJavaCallAdapterFactory
@@ -17,10 +17,16 @@ import rx.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity() {
 
+    private var image: ImageView? = null
+    private var username: TextView? = null
+    private var company: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,
-                R.layout.activity_main)
+        setContentView(R.layout.activity_main)
+        image = findViewById(R.id.image) as ImageView
+        username = findViewById(R.id.username) as TextView
+        company = findViewById(R.id.company) as TextView
 
         //initialized gson
         val gson = GsonBuilder().create()
@@ -41,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { user ->
-                            getData(binding, user)
+                            getData(user)
                         },
                         { error ->
                             Log.e("Error", error.message)
@@ -51,9 +57,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getData(binding: ActivityMainBinding, savedUser: Github?) {
-        Glide.with(this).load(savedUser?.avatarUrl).into(binding.image)
-        binding.username.text = savedUser?.name
-        binding.company.text = savedUser?.company
+    private fun getData(savedUser: Github?) {
+        Glide.with(this).load(savedUser?.avatarUrl).into(image)
+        username!!.text = savedUser?.name
+        company!!.text = savedUser?.company
     }
 }
