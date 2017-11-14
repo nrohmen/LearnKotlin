@@ -51,12 +51,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getData(savedUser: Github?) {
+    private fun getData(user: Github?) {
         val image = findViewById<ImageView>(R.id.image)
         val username = findViewById<TextView>(R.id.username)
         val company = findViewById<TextView>(R.id.company)
-        Glide.with(this).load(savedUser?.avatarUrl).into(image)
-        username.text = savedUser?.name
-        company.text = savedUser?.company
+        Glide.with(this).load(user?.avatarUrl).into(image)
+        username.text = user?.name
+        company.text = user?.company
     }
 }
