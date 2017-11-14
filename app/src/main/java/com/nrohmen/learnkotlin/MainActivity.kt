@@ -17,16 +17,10 @@ import rx.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity() {
 
-    private var image: ImageView? = null
-    private var username: TextView? = null
-    private var company: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        image = findViewById(R.id.image) as ImageView
-        username = findViewById(R.id.username) as TextView
-        company = findViewById(R.id.company) as TextView
 
         //initialized gson
         val gson = GsonBuilder().create()
@@ -58,8 +52,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData(savedUser: Github?) {
+        val image = findViewById<ImageView>(R.id.image)
+        val username = findViewById<TextView>(R.id.username)
+        val company = findViewById<TextView>(R.id.company)
         Glide.with(this).load(savedUser?.avatarUrl).into(image)
-        username!!.text = savedUser?.name
-        company!!.text = savedUser?.company
+        username.text = savedUser?.name
+        company.text = savedUser?.company
     }
 }
