@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Downloads-LearnKotlin.iml" filepath="$PROJECT_DIR$/Downloads-LearnKotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/LearnKotlin.iml" filepath="$PROJECT_DIR$/LearnKotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LearnKotlin.iml" filepath="$PROJECT_DIR$/LearnKotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/LearnKotlin-app.iml" filepath="$PROJECT_DIR$/app/LearnKotlin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

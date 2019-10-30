@@ -1,7 +1,7 @@
 package com.nrohmen.learnkotlin
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 Service::class.java)
 
         //get data from github by username
-        service.getUser("ennur")
+        service.getUser("nrohmen")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
